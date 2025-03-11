@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage("Checkout Node js-Project") {
+            steps {
+                echo "Checkout Node js-Project"
+            }    
+        }
+        stage("Clean - Node js-Project") {
+            steps {
+                echo "Clean - Node js-Project"
+            }
+        }
+        stage('Build ') {
+            steps {
+                sh ' npm install'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './jenkins/scripts/test.sh'
+            }
+        }
+        
+    }
+}
